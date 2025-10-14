@@ -1,5 +1,9 @@
 name: 'Generate Status Version'
 description: 'Generates a version string by appending environment and status to base version'
+author: 'Optivem'
+branding:
+  icon: 'tag'
+  color: 'blue'
 
 inputs:
   version:

@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Get tag name
+        id: tag
+        run: echo "tag=${GITHUB_REF#refs/tags/}" >> $GITHUB_OUTPUT
+
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.tag.outputs.tag }}
+          release_name: Release ${{ steps.tag.outputs.tag }}
+          body: |
+            Changes in this release:
+            - See commit history for details
+          draft: false
+          prerelease: false
+
+      - name: Update major version tag
+        run: |
+          TAG=${{ steps.tag.outputs.tag }}
+          MAJOR_VERSION=$(echo $TAG | cut -d. -f1)
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git tag -fa $MAJOR_VERSION -m "Update $MAJOR_VERSION to $TAG"
+          git push origin $MAJOR_VERSION --force
