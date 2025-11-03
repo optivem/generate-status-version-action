@@ -4,6 +4,7 @@
 [![Release](https://github.com/optivem/generate-status-version-action/actions/workflows/release.yml/badge.svg)](https://github.com/optivem/generate-status-version-action/actions/workflows/release.yml)
 
 [![GitHub release](https://img.shields.io/github/release/optivem/generate-status-version-action.svg)](https://github.com/optivem/generate-status-version-action/releases)
+[![GitHub](https://img.shields.io/github/license/optivem/generate-status-version-action)](LICENSE)
 
 A GitHub Action that generates a version string by appending environment and status to a base version. This is useful for creating unique version identifiers for deployments across different environments.
 
