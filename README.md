@@ -1,3 +1,6 @@
+> [!WARNING]
+> This action has moved to [optivem/actions](https://github.com/optivem/actions). Use `optivem/actions/generate-status-version@v1` instead.
+
 # Generate Status Version Action
 
 [![Test Action](https://github.com/optivem/generate-status-version-action/actions/workflows/test.yml/badge.svg)](https://github.com/optivem/generate-status-version-action/actions/workflows/test.yml)
